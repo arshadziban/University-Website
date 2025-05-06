@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astralis Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+        /* WhatsApp Button Styles */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-btn" id="whatsappBtn">
+        <i class="fab fa-whatsapp fa-2x"></i>
+    </div>
+
+    <!-- WhatsApp Modal -->
+    <div class="modal" id="whatsappModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <div class="text-center mb-4">
+                <i class="fab fa-whatsapp text-4xl text-[#25D366]"></i>
+                <h3 class="text-xl font-semibold mt-2">Contact via WhatsApp</h3>
+                <p class="text-gray-600 text-sm">Send us a message and we'll get back to you soon!</p>
+            </div>
+            <form id="whatsappForm">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 text-sm font-medium mb-1">Name</label>
+                    <input type="text" id="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#25D366]" required>
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-gray-700 text-sm font-medium mb-1">Message</label>
+                    <textarea id="message" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#25D366]" required></textarea>
+                </div>
+                <button type="submit" class="w-full bg-[#25D366] text-white py-2 rounded-md hover:bg-[#128C7E] transition duration-300">
+                    <i class="fab fa-whatsapp mr-2"></i> Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="hero-section relative">
+        <!-- Navigation -->
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-white">
+                        <img src="assets/image.jpg" alt="Academy Logo" class="h-16">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-white hover:text-[#C44D2D] transition duration-300 border-b-2 border-white">HOME</a>
+                    <a href="about.html" class="text-white hover:text-[#C44D2D] transition duration-300">ABOUT</a>
+                    <a href="course.html" class="text-white hover:text-[#C44D2D] transition duration-300">COURSE</a>
+                    <a href="contact.html" class="text-white hover:text-[#C44D2D] transition duration-300">CONTACT</a>
+                    <a href="login.html" class="bg-[#C44D2D] text-white hover:bg-[#B33D1D] px-4 py-2 rounded-md transition duration-300">LOGIN</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-white focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Content -->
+        <div class="container mx-auto px-6 flex flex-col items-center justify-center h-full text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-white leading-tight mb-4">Astralis Academy</h1>
+            <p class="text-xl text-white mb-2">Start your education with us</p>
+            <p class="text-lg text-white mb-8">Lorem ipsum dolor sit amet consectetur.</p>
+            <a href="#" class="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 mt-4 transition duration-300">
+                Visit Us To Know More
+            </a>
+        </div>
+    </div>
+
+    <!-- Courses Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-2">Courses We Offer</h2>
+            <p class="text-gray-600 text-center mb-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Undergraduate Study -->
+                <div class="bg-[#C44D2D] p-8 rounded-lg text-center">
+                    <h3 class="text-xl font-semibold mb-4 text-white">Undergraduate Study</h3>
+                    <ul class="space-y-2 text-white">
+                        <li>Academic Programs</li>
+                        <li>Admission Requirements</li>
+                        <li>Apply Online</li>
+                    </ul>
+                </div>
+                
+                <!-- Graduate Study -->
+                <div class="bg-[#C44D2D] p-8 rounded-lg text-center">
+                    <h3 class="text-xl font-semibold mb-4 text-white">Graduate Study</h3>
+                    <ul class="space-y-2 text-white">
+                        <li>Academic Programs</li>
+                        <li>Admission Requirements</li>
+                        <li>Apply Online</li>
+                    </ul>
+                </div>
+                
+                <!-- Research -->
+                <div class="bg-[#C44D2D] p-8 rounded-lg text-center">
+                    <h3 class="text-xl font-semibold mb-4 text-white">Research</h3>
+                    <ul class="space-y-2 text-white">
+                        <li>Grant Awardees</li>
+                        <li>Research proposal</li>
+                        <li>Funding Sources</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-2">Our Main Campus</h2>
+            <p class="text-gray-600 text-center mb-12">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius, repellendus!</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Campus Image 1 -->
+                <div class="overflow-hidden rounded-lg shadow-lg">
+                    <img src="assets/image.jpg" alt="Campus Building" class="w-full h-64 object-cover">
+                </div>
+                
+                <!-- Campus Image 2 -->
+                <div class="overflow-hidden rounded-lg shadow-lg">
+                    <img src="assets/image.jpg" alt="Campus Grounds" class="w-full h-64 object-cover">
+                </div>
+                
+                <!-- Campus Image 3 -->
+                <div class="overflow-hidden rounded-lg shadow-lg">
+                    <img src="assets/image.jpg" alt="Aerial View" class="w-full h-64 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-2">Our Facilities</h2>
+            <p class="text-gray-600 text-center mb-12">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, quibusdam?</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Library -->
+                <div>
+                    <div class="overflow-hidden rounded-lg shadow-lg mb-4">
+                        <img src="assets/image.jpg" alt="Academy Library" class="w-full h-64 object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">World Class Library</h3>
+                    <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic aliquam, sed excepturi nobis amet eaque autem? Voluptate minus harum nihil.</p>
+                </div>
+                
+                <!-- Playground -->
+                <div>
+                    <div class="overflow-hidden rounded-lg shadow-lg mb-4">
+                        <img src="assets/image.jpg" alt="Basketball Court" class="w-full h-64 object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Largest Play Ground</h3>
+                    <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic aliquam, sed excepturi nobis amet eaque autem? Voluptate minus harum nihil.</p>
+                </div>
+                
+                <!-- Cafeteria -->
+                <div>
+                    <div class="overflow-hidden rounded-lg shadow-lg mb-4">
+                        <img src="assets/image.jpg" alt="Academy Cafeteria" class="w-full h-64 object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Tasty & Healthy Food</h3>
+                    <p class="text-gray-600">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic aliquam, sed excepturi nobis amet eaque autem? Voluptate minus harum nihil.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- You can add more sections here as needed -->
+    
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center text-center">
+                <!-- Academy Info -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Astralis Academy</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-gray-300 transition duration-300">HOME</a></li>
+                        <li><a href="about.html" class="hover:text-gray-300 transition duration-300">ABOUT</a></li>
+                        <li><a href="blog.html" class="hover:text-gray-300 transition duration-300">BLOG</a></li>
+                        <li><a href="contact.html" class="hover:text-gray-300 transition duration-300">CONTACT</a></li>
+                    </ul>
+                </div>
+
+                <!-- Programs -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Courses</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-gray-300 transition duration-300">Undergraduate Study</a></li>
+                        <li><a href="#" class="hover:text-gray-300 transition duration-300">Graduate Study</a></li>
+                        <li><a href="#" class="hover:text-gray-300 transition duration-300">Research</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Us -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+                    <div class="space-y-3 mt-4">
+                        <textarea placeholder="Write your message here..." class="px-4 py-2 w-full text-gray-900 focus:outline-none rounded-md resize-none h-24"></textarea>
+                        <button class="bg-white text-gray-900 px-4 py-2 rounded-md hover:bg-gray-200 transition duration-300 w-full">SEND</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p>© Copyright Astralis Academy 2025</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-white hover:text-gray-300 transition duration-300">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-300 transition duration-300">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-300 transition duration-300">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-white hover:text-gray-300 transition duration-300">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        document.querySelector('button').addEventListener('click', function() {
+            const nav = document.querySelector('.md\\:flex');
+            nav.classList.toggle('hidden');
+            nav.classList.toggle('flex');
+            nav.classList.toggle('flex-col');
+            nav.classList.toggle('absolute');
+            nav.classList.toggle('top-20');
+            nav.classList.toggle('left-0');
+            nav.classList.toggle('w-full');
+            nav.classList.toggle('bg-gray-900');
+            nav.classList.toggle('p-4');
+        });
+
+        // WhatsApp Modal JavaScript
+        const whatsappBtn = document.getElementById('whatsappBtn');
+        const whatsappModal = document.getElementById('whatsappModal');
+        const closeModal = document.getElementById('closeModal');
+        const whatsappForm = document.getElementById('whatsappForm');
+
+        // Open modal when WhatsApp button is clicked
+        whatsappBtn.addEventListener('click', function() {
+            whatsappModal.style.display = 'flex';
+        });
+
+        // Close modal when X is clicked
+        closeModal.addEventListener('click', function() {
+            whatsappModal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside the modal content
+        window.addEventListener('click', function(event) {
+            if (event.target === whatsappModal) {
+                whatsappModal.style.display = 'none';
+            }
+        });
+
+        // Handle form submission
+        whatsappForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            
+            // Format the message for WhatsApp
+            const formattedMessage = `Hello, my name is ${name}. ${message}`;
+            const encodedMessage = encodeURIComponent(formattedMessage);
+            
+            //  WhatsApp number
+            const whatsappNumber = '8801760052274'; 
+            
+            // Open WhatsApp with the pre-filled message
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+            
+            // Close the modal after sending
+            whatsappModal.style.display = 'none';
+            
+            // Reset the form
+            whatsappForm.reset();
+        });
+    </script>
+</body>
+</html>
